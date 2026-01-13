@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Pink & Spiritual Theme Palette */
+  --background: 336 60% 98%;      /* #fff0f5 - Lavender Blush */
+  --foreground: 339 60% 15%;      /* Dark Pinkish Grey */
+  
+  --primary: 336 77% 43%;         /* #c2185b - Medium Violet Red */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 336 40% 90%;       /* Soft Pink */
+  --secondary-foreground: 336 77% 43%;
+  
+  --muted: 336 20% 94%;
+  --muted-foreground: 339 20% 40%;
+  
+  --accent: 336 60% 92%;
+  --accent-foreground: 336 77% 43%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 336 30% 90%;
+  --input: 336 30% 90%;
+  --ring: 336 77% 43%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 339 60% 15%;
+
+  --radius: 1rem;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Quicksand', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, system-ui, Arial;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: #ffe6f0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+}
+
+@layer utilities {
+  .top-bar {
+    @apply flex justify-between items-center p-3 border-b border-[#e5e7eb] bg-white;
+  }
+
+  .logo {
+    @apply font-semibold text-lg text-[#111827];
+  }
+
+  .premium-btn {
+    @apply bg-[#facc15] hover:bg-[#fde047] text-[#111827] border-none px-3.5 py-2 rounded-xl cursor-pointer font-semibold transition-colors;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-gradient-to-b from-[#0f172a]/90 to-[#020617]/90 flex justify-center items-center z-[100];
+  }
+
+  .modal-content {
+    @apply bg-[#020617] p-8 rounded-[18px] w-full max-w-[380px] text-center shadow-[0_0_40px_rgba(0,0,0,0.7),0_0_25px_rgba(34,197,94,0.35)] border border-[#1f2937] animate-in fade-in slide-in-from-bottom-5 duration-700;
+  }
+
+  .buy-btn {
+    @apply bg-gradient-to-r from-[#22c55e] to-[#16a34a] hover:shadow-[0_0_20px_rgba(34,197,94,0.35)] text-[#022c22] p-4 w-full rounded-[12px] border-none mt-3 transition-all font-semibold text-[16px] active:scale-[0.97] relative overflow-hidden;
+  }
+
+  .buy-btn::after {
+    content: "";
+    @apply absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.35)_10%,transparent_60%)] opacity-0 transition-opacity duration-300 hover:opacity-100;
+  }
+
+  .close-btn {
+    @apply bg-transparent border-none mt-[20px] cursor-pointer text-[#6b7280] hover:text-[#e5e7eb] font-medium text-[12px];
+  }
+
+  .glass-panel {
+    @apply bg-white rounded-[10px] shadow-sm;
+    width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+  }
+
+  .chat-bubble-user {
+    @apply text-gray-800;
+    max-width: 100%;
+    padding: 6px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    align-self: flex-end;
+  }
+
+  .chat-bubble-assistant {
+    @apply text-[#c2185b];
+    max-width: 100%;
+    padding: 6px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    align-self: flex-start;
+  }
+
+  .quick-answers {
+    @apply flex gap-2.5 p-2.5 flex-wrap;
+  }
+
+  .quick-answers button {
+    @apply bg-[#e5e7eb] border-none px-3 py-1.5 rounded-xl cursor-pointer text-sm transition-colors hover:bg-[#d1d5db];
+  }
+}
